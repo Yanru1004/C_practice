@@ -2,10 +2,12 @@
 
 int main(){
 
-    int sorce = 10;
-    printf("Sorce:%d",sorce*2);
-    
-    return 0;
+    int value;
 
+    //int* a; 
+    value = 10;
+    //a = &value;
+
+    printf("value: %d",value);
+    printf("address %X",&value);
 }
-
