@@ -9,5 +9,5 @@ int main(){
     //a = &value;
 
     printf("value: %d",value);
-    printf("address %X",&value);
+    printf("address %p",&value);
 }
