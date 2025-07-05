@@ -1,3 +1,4 @@
+//a002.簡易加法
 #include <iostream>
 
 using namespace std;
