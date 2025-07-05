@@ -1,3 +1,4 @@
+//a003.兩光法師占卜術
 #include <iostream>
 
 using namespace std;

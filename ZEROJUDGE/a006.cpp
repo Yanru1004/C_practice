@@ -1,3 +1,4 @@
+//a006.一元二次方程式
 #include<iostream>
 #include<cmath>
 
