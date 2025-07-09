@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <cmath>
 
 using namespace std;
 
@@ -158,10 +159,15 @@ int main(){
 
 string roma1,roma2;
 
-    while (cin >> roma1 >> roma2){
-    if (roma1 == "#" || roma2 == ""){
-        break;}
-    cout << intToRoma(romaToInt(roma1) - romaToInt(roma2))<<endl;
+    while (cin >> roma1){
+    if (roma1 == "#"){break;}
+    cin >> roma2;
+
+    
+    
+    cout << intToRoma(abs(romaToInt(roma1) - romaToInt(roma2)))<<endl;
 }
     
 }
+
+//2025.07.09 AC
