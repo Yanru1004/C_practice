@@ -5,6 +5,21 @@
 
 using namespace std;
 
+//收成分數計算
+//field 田地資訊
+//x,y   起始座標
+//dx,dy 收割範圍
+int calc_score(vector<vector<int>> field,int x,int y,int dx,int dy){
+  int score = 0;  
+  for (int i=0; i<dx; i++){
+    for (int j=0; j<dy; j++){
+      score += field[x+i][y+j];
+    }
+  }
+  return score;
+}
+
+
 int main(){
 
     int edge;
@@ -12,31 +27,36 @@ int main(){
 
     vector<vector<int>> field;
     vector<int> row;
-
+    
+    //匯入田地資訊
     for (int i=0; i<edge; i++){
         for (int j=0; j<edge; j++){
-        
-        int num;
+          int num;
         cin >> num;
         row.push_back(num);
         }
         field.push_back(row);
         row.clear();
-
-    }
-
-    for (int i=0; i<edge; i++){
-        for (int j=0; j<edge; j++){
-            cout << field[i][j] << " ";
-
-        }
-        cout << endl;
-    }
+    }       
+    //收割範圍遍歷
     
+    int max_score =0;
+    for (int i=1; i<=edge; i++){  //收割單位1-base
+      for (int j=1; j<=edge; j++){
+        //收割起始座標
+        for (int x=0; x+i<edge; x++){
+          for (int y=0; x+j<edge; y++){
+            cout << "座標(" << x << "," << y << ")";
+            cout << "  收割範圍:" << i << "×" << j;
+            cout << "分數:  ";
+            cout << calc_score(field,x,y,i,j) << endl;
 
+          }
+        }
 
-
-
+      }
+    }
+    cout << calc_score(field,1,0,3,2);
 
     return 0;
 }
