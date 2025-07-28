@@ -11,8 +11,8 @@ using namespace std;
 //dx,dy 收割範圍
 int calc_score(vector<vector<int>> field,int x,int y,int dx,int dy){
   int score = 0;  
-  for (int i=0; i<dx; i++){
-    for (int j=0; j<dy; j++){
+  for (int i=0; i<=dx; i++){
+    for (int j=0; j<=dy; j++){
       score += field[x+i][y+j];
     }
   }
@@ -41,22 +41,22 @@ int main(){
     //收割範圍遍歷
     
     int max_score =0;
-    for (int i=1; i<=edge; i++){  //收割單位1-base
-      for (int j=1; j<=edge; j++){
+    for (int i=0; i<edge; i++){  //收割單位
+      for (int j=0; j<edge; j++){
         //收割起始座標
         for (int x=0; x+i<edge; x++){
-          for (int y=0; x+j<edge; y++){
-            cout << "座標(" << x << "," << y << ")";
-            cout << "  收割範圍:" << i << "×" << j;
-            cout << "分數:  ";
-            cout << calc_score(field,x,y,i,j) << endl;
-
+          for (int y=0; y+j<edge; y++){
+            int score;
+            score = calc_score(field,x,y,i,j);
+            if (score > max_score){
+              max_score = score;
+            }
           }
         }
 
       }
     }
-    cout << calc_score(field,1,0,3,2);
+    cout << max_score;
 
     return 0;
 }
