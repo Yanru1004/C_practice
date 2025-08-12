@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <cmath>
 
 using namespace std;
 
@@ -72,7 +73,7 @@ int romaToInt(string roma){
     }
         //補算最後一字元
         result += roma_int[pre_text];
-        cout << result<<endl;
+        //cout << result<<endl;
     return result;
 }
 
@@ -157,8 +158,16 @@ string intToRoma(int _int){
 int main(){
 
 string roma1,roma2;
-cin >> roma1 >> roma2;
 
-cout << intToRoma( romaToInt(roma1) - romaToInt(roma2));
+    while (cin >> roma1){
+    if (roma1 == "#"){break;}
+    cin >> roma2;
+
+    
+    
+    cout << intToRoma(abs(romaToInt(roma1) - romaToInt(roma2)))<<endl;
+}
     
 }
+
+//2025.07.09 AC
